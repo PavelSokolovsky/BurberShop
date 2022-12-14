@@ -1,0 +1,65 @@
+﻿<Window x:Class="BarberShop.Windows.FirstWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BarberShop.Windows"
+        mc:Ignorable="d"
+        Title="Окно учета принятых сотрудников на работу" Height="450" Width="800">
+    <Grid>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <DataGrid  AutoGenerateColumns ="False" IsReadOnly="True" Name="BarberList">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID Барбера" Width="*" Binding="{Binding IDBarber}"/>
+                <DataGridTextColumn Header="Должность барбера" Width="*"  Binding="{Binding role}"/>
+                <DataGridTextColumn Header="Имя Барбера" Width="*"  Binding="{Binding name}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Grid Grid.Column="1">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+           
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                
+                <Label Content="Введите ID Барбера" HorizontalAlignment="Center" FontSize="14"/>
+                <TextBox Name="BarberIdTb" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                <Label Content="Введите должность барбера" HorizontalAlignment="Center" FontSize="14"/>
+                <TextBox Name="BarberRoleTb" TextWrapping="Wrap" Text=""  Width="120" />
+                <Label Content="Введите Имя Барбера" HorizontalAlignment="Center" FontSize="14"/>
+                <TextBox Name="BarberNameTb" TextWrapping="Wrap" Text=""  Width="120" Margin=" 0 1 0 1"/>
+                <GroupBox Header="Фильтрация"
+                          Margin="0 10 0 0 ">
+                    <StackPanel>   
+                
+                <TextBox Name="FiltrTb" TextWrapping="Wrap" Text=""  Width="120" TextChanged="FiltrTb_TextChanged"/>
+                
+                    </StackPanel>
+                </GroupBox>
+
+
+
+            </StackPanel>
+
+            <StackPanel Grid.Row="1" VerticalAlignment="Center">
+                <Button x:Name="EditBB" Content="Редактировать" Click="EditBB_Click" HorizontalAlignment="Stretch"
+                        Margin=" 0 10 0 0"/>
+                <Button x:Name="InsertBB" Content="Добавить" Click="InsertBB_Click" HorizontalAlignment="Stretch"
+                        Margin=" 0 10 0 0"/>
+                <Button x:Name="DeleteBB" Content="Удалить" Click="DeleteBB_Click" HorizontalAlignment="Stretch"
+                        Margin=" 0 10 0 0"/>
+                <Button x:Name="Exit" Content="Выйти из учетной записи" Click="Exit_Click" HorizontalAlignment="Stretch"
+                        Margin=" 0 10 0 0"/>
+                <Button x:Name="NextWindow" Content="Перейти к окну учета товаров" Click="NextWindow_Click" HorizontalAlignment="Stretch"
+                        Margin=" 0 10 0 0"/>
+            </StackPanel>
+            
+        </Grid>
+    </Grid>
+</Window>

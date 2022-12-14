@@ -1,0 +1,34 @@
+﻿<Window x:Class="BarberShop.Windows.Authorizationwindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BarberShop.Windows"
+        mc:Ignorable="d"
+        Title="Authorizationwindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions >
+            <RowDefinition Height="0.8*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="0.8*"/>
+        </Grid.RowDefinitions>
+        <StackPanel HorizontalAlignment="Stretch"
+                    Grid.Row="1">
+            <TextBlock Text="Введите Логин:"
+                       FontSize="32"/>
+            <TextBox FontSize="32"
+                     Name="LoginTb"/>
+            <TextBlock Text="Введите Пароль:"
+                       FontSize="32"/>
+            <PasswordBox FontSize="32"
+                     Name="PassBx"/>
+            <Button Name="AuthorizationBtn"
+                    Click="AuthorizationBtn_Click"
+                    Content="Войти"
+                    FontSize="24"
+                    HorizontalAlignment="Center"
+                    Width="300"/>
+        </StackPanel >
+        
+    </Grid>
+</Window>

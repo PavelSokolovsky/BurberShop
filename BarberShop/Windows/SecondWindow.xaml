@@ -1,0 +1,55 @@
+﻿<Window x:Class="BarberShop.Windows.SecondWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BarberShop.Windows"
+        mc:Ignorable="d"
+        Title="Недочет был тут" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <DataGrid  AutoGenerateColumns ="False" IsReadOnly="True" Name="ItemsList">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID Товара" Width="*" Binding="{Binding iditem}"/>
+                <DataGridTextColumn Header="Название Товара" Width="*" Binding="{Binding name}"/>
+                <DataGridTextColumn Header="Остаток на складе" Width="*" Binding="{Binding amount}"/>
+                <DataGridTextColumn Header="Дата прихода" Width="*" Binding="{Binding Date, StringFormat=\{0:dd.MM.yy\}}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Grid Grid.Column="1">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+
+                <Label Content="Введите ID Товара" HorizontalAlignment="Center" FontSize="14"/>
+                <TextBox Name="ItemIdTb" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                <Label Content="Введите название товара" HorizontalAlignment="Center" FontSize="14"/>
+                <TextBox Name="ItemNameTb" TextWrapping="Wrap" Text=""  Width="120" />
+                <Label Content="Введите Кол-во Остатка" HorizontalAlignment="Center" FontSize="14"/>
+                <TextBox Name="ItemAmountTb" TextWrapping="Wrap" Text=""  Width="120"/>
+                <Label Content="Введите Дату прихода" HorizontalAlignment="Center" FontSize="14"/>
+                <DatePicker Name="ItemDt"/>
+
+            </StackPanel>
+
+            <StackPanel Grid.Row="1" VerticalAlignment="Center">
+                <Button x:Name="Edit" Content="Редактировать" Click="Edit_Click" HorizontalAlignment="Stretch"
+                        Margin=" 0 20 0 0"/>
+                <Button x:Name="Insert" Content="Добавить" Click="Insert_Click" HorizontalAlignment="Stretch"
+                        Margin=" 0 20 0 0"/>
+                <Button x:Name="Delete" Content="Удалить" Click="Delete_Click" HorizontalAlignment="Stretch"
+                        Margin=" 0 20 0 0"/>
+                <Button x:Name="Back" Content="Назад" Click="Back_Click" HorizontalAlignment="Stretch"
+                        Margin=" 0 20 0 0"/>
+            </StackPanel>
+
+        </Grid>
+    </Grid>
+</Window>
